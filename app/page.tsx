@@ -1,5 +1,9 @@
-import { Button } from "@heroui/react";
+import { Link } from "@heroui/react";
 
 export default function Home() {
-  return <Button color="primary">Button</Button>;
+  return (
+    <div>
+      <Link href="/login">Login</Link>
+    </div>
+  );
 }

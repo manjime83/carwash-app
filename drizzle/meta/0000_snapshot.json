@@ -39,12 +39,8 @@
           "name": "car_wash_services_car_wash_id_car_washes_id_fk",
           "tableFrom": "car_wash_services",
           "tableTo": "car_washes",
-          "columnsFrom": [
-            "car_wash_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["car_wash_id"],
+          "columnsTo": ["id"],
           "onDelete": "cascade",
           "onUpdate": "no action"
         },
@@ -52,12 +48,8 @@
           "name": "car_wash_services_service_id_services_id_fk",
           "tableFrom": "car_wash_services",
           "tableTo": "services",
-          "columnsFrom": [
-            "service_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["service_id"],
+          "columnsTo": ["id"],
           "onDelete": "cascade",
           "onUpdate": "no action"
         }
@@ -112,12 +104,8 @@
           "name": "car_washes_vehicle_id_vehicles_id_fk",
           "tableFrom": "car_washes",
           "tableTo": "vehicles",
-          "columnsFrom": [
-            "vehicle_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["vehicle_id"],
+          "columnsTo": ["id"],
           "onDelete": "cascade",
           "onUpdate": "no action"
         }
@@ -214,12 +202,8 @@
           "name": "payments_car_wash_id_car_washes_id_fk",
           "tableFrom": "payments",
           "tableTo": "car_washes",
-          "columnsFrom": [
-            "car_wash_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["car_wash_id"],
+          "columnsTo": ["id"],
           "onDelete": "cascade",
           "onUpdate": "no action"
         }
@@ -335,12 +319,8 @@
           "name": "vehicles_client_id_clients_id_fk",
           "tableFrom": "vehicles",
           "tableTo": "clients",
-          "columnsFrom": [
-            "client_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["client_id"],
+          "columnsTo": ["id"],
           "onDelete": "cascade",
           "onUpdate": "no action"
         }
@@ -440,12 +420,8 @@
           "name": "accounts_user_id_users_id_fk",
           "tableFrom": "accounts",
           "tableTo": "users",
-          "columnsFrom": [
-            "user_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["user_id"],
+          "columnsTo": ["id"],
           "onDelete": "cascade",
           "onUpdate": "no action"
         }
@@ -515,12 +491,8 @@
           "name": "sessions_user_id_users_id_fk",
           "tableFrom": "sessions",
           "tableTo": "users",
-          "columnsFrom": [
-            "user_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["user_id"],
+          "columnsTo": ["id"],
           "onDelete": "cascade",
           "onUpdate": "no action"
         }
@@ -530,9 +502,7 @@
         "sessions_token_unique": {
           "name": "sessions_token_unique",
           "nullsNotDistinct": false,
-          "columns": [
-            "token"
-          ]
+          "columns": ["token"]
         }
       },
       "policies": {},
@@ -593,9 +563,7 @@
         "users_email_unique": {
           "name": "users_email_unique",
           "nullsNotDistinct": false,
-          "columns": [
-            "email"
-          ]
+          "columns": ["email"]
         }
       },
       "policies": {},
@@ -656,11 +624,7 @@
     "public.vehicle_types": {
       "name": "vehicle_types",
       "schema": "public",
-      "values": [
-        "car",
-        "motorcycle",
-        "truck"
-      ]
+      "values": ["car", "motorcycle", "truck"]
     }
   },
   "schemas": {},
