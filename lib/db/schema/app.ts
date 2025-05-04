@@ -46,7 +46,7 @@ export const carWashes = pgTable("car_washes", {
 
 export const carWashServices = pgTable("car_wash_services", {
   id: varchar("id", { length: getConstants().defaultLength }).primaryKey().$defaultFn(createId),
-  carWashId: varchar("car_wash_id", { length: getConstants().defaultLength }).references(() => carWash.id, {
+  carWashId: varchar("car_wash_id", { length: getConstants().defaultLength }).references(() => carWashes.id, {
     onDelete: "cascade",
   }),
   serviceId: varchar("service_id", { length: getConstants().defaultLength }).references(() => services.id, {
@@ -57,7 +57,7 @@ export const carWashServices = pgTable("car_wash_services", {
 
 export const payments = pgTable("payments", {
   id: varchar("id", { length: getConstants().defaultLength }).primaryKey().$defaultFn(createId),
-  carWashId: varchar("car_wash_id", { length: getConstants().defaultLength }).references(() => carWash.id, {
+  carWashId: varchar("car_wash_id", { length: getConstants().defaultLength }).references(() => carWashes.id, {
     onDelete: "cascade",
   }),
   amount: numeric("amount", { precision: 10, scale: 2 }).notNull(),
