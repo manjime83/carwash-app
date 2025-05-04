@@ -5,8 +5,8 @@ export const clients = pgTable("clients", {
   id: varchar("id", { length: getConstants().defaultLength }).primaryKey().$defaultFn(createId),
   firstName: text("first_name").notNull(),
   lastName: text("last_name").notNull(),
-  email: text("email"),
-  phone: text("phone"),
+  email: text("email").notNull(),
+  phone: text("phone").notNull(),
   active: boolean("active").notNull().default(true),
 });
 
@@ -23,7 +23,7 @@ export const vehicles = pgTable("vehicles", {
   model: text("model").notNull(),
   year: smallint("year").notNull(),
   color: text("color").notNull(),
-  plateNumber: text("plate_number").notNull(),
+  plate: text("plate").notNull(),
   active: boolean("active").notNull().default(true),
 });
 
