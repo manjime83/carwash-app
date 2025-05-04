@@ -5,10 +5,18 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "postbuild": "drizzle-kit migrate",
     "start": "next start",
     "lint": "next lint",
-    "vercel:env": "vercel env pull .env",
-    "auth:generate": "pnpx @better-auth/cli generate --output ./lib/db/schema/auth.ts --y"
+    "vercel:env": "pnpx vercel env pull .env",
+    "typecheck": "tsc --noEmit",
+    "format:check": "prettier --check . --cache",
+    "format:write": "prettier --write . --cache",
+    "auth:generate": "pnpx @better-auth/cli generate --output ./lib/db/schema/auth.ts --y",
+    "db:generate": "drizzle-kit generate",
+    "db:drop": "drizzle-kit drop",
+    "db:push": "drizzle-kit push",
+    "db:studio": "drizzle-kit studio"
   },
   "dependencies": {
     "@heroui/react": "2.8.0-beta.4",
