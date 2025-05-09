@@ -11,7 +11,7 @@ export default async function Dashboard() {
     redirect("/login");
   }
 
-  const userId = session.user.id;
+  // const userId = session.user.id;
 
   return (
     <div>

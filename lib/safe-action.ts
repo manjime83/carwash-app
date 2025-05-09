@@ -1,12 +1,10 @@
 import { createSafeActionClient } from "next-safe-action";
 import { headers } from "next/headers";
-import { z } from "zod";
 import { auth } from "./auth";
 
 export class ActionError extends Error {}
 
 export const actionClient = createSafeActionClient({
-  defineMetadataSchema: () => z.object({ actionName: z.string() }),
   defaultValidationErrorsShape: "flattened",
 });
 
