@@ -12,11 +12,11 @@ import { z } from "zod";
 
 const schema = z.object({
   id: z.string(),
-  name: z.string().min(1),
+  name: z.string().min(1).max(999_999),
   prices: z.object({
-    motorcycle: z.coerce.number().min(0),
-    car: z.coerce.number().min(0),
-    truck: z.coerce.number().min(0),
+    motorcycle: z.number().min(0),
+    car: z.number().min(0),
+    truck: z.number().min(0),
   }),
 });
 
@@ -87,12 +87,12 @@ export default function ServiceForm({ service }: { service: Service | null }) {
           <Input
             label="Nombre"
             isRequired
+            placeholder="Lavado de Motor"
             value={field.state.value}
-            onChange={(e) => field.handleChange(e.target.value)}
+            onValueChange={(value) => field.handleChange(value)}
             onBlur={field.handleBlur}
             errorMessage={field.state.meta.errors?.[0]?.message}
-            isInvalid={field.state.meta.errors.length > 0}
-            placeholder="Lavado básico"
+            isInvalid={!field.state.meta.isValid}
             disabled={form.state.isSubmitting}
           />
         )}
@@ -105,17 +105,20 @@ export default function ServiceForm({ service }: { service: Service | null }) {
               <NumberInput
                 label={`Precio ${constants.VEHICLE_TYPE_NAMES[type]}`}
                 isRequired
-                value={field.state.value}
-                onChange={(val) => {
-                  const numericValue = Number(String(val).replace(/,/g, ""));
-                  field.handleChange(isNaN(numericValue) ? 0 : numericValue);
-                }}
-                onBlur={field.handleBlur}
-                errorMessage={field.state.meta.errors?.[0]?.message}
-                isInvalid={field.state.meta.errors.length > 0}
-                disabled={form.state.isSubmitting}
                 min={0}
-                max={1000000}
+                max={999_999}
+                value={field.state.value}
+                onValueChange={(value) => field.handleChange(isNaN(value) ? 0 : value)}
+                onBlur={field.handleBlur}
+                errorMessage={
+                  <ul>
+                    {field.state.meta.errors.map((error, i) => (
+                      <li key={i}>{error?.message}</li>
+                    ))}
+                  </ul>
+                }
+                isInvalid={!field.state.meta.isValid}
+                disabled={form.state.isSubmitting}
               />
             )}
           </form.Field>
@@ -126,6 +129,8 @@ export default function ServiceForm({ service }: { service: Service | null }) {
       {success && <div className="mb-2 text-sm text-green-600">{success}</div>}
 
       <Button
+        name="submit"
+        value={service ? "Actualizar Servicio" : "Crear Servicio"}
         type="submit"
         className="mt-2 w-full"
         isLoading={form.state.isSubmitting}

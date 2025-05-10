@@ -1,13 +1,11 @@
 "use client";
 
-import type { NavbarProps } from "@heroui/react";
-
 import { authClient } from "@/lib/auth-client";
 import constants from "@/lib/constants";
+import { Button } from "@heroui/button";
+import { Link } from "@heroui/link";
+import type { NavbarProps } from "@heroui/navbar";
 import {
-  Button,
-  cn,
-  Link,
   Navbar,
   NavbarBrand,
   NavbarContent,
@@ -15,7 +13,8 @@ import {
   NavbarMenu,
   NavbarMenuItem,
   NavbarMenuToggle,
-} from "@heroui/react";
+} from "@heroui/navbar";
+import { cn } from "@heroui/theme";
 import { usePathname, useRouter } from "next/navigation";
 import { useState } from "react";
 import AppIcon from "./AppIcon";

@@ -4,7 +4,7 @@ import { toggleServiceAction } from "@/actions/toggleServiceAction";
 import constants from "@/lib/constants";
 import { Service, vehicleTypeValues } from "@/lib/db/schema/app";
 import { formatCurrency } from "@/lib/utils";
-import { Link } from "@heroui/react";
+import { Link } from "@heroui/link";
 import { getKeyValue, Table, TableBody, TableCell, TableColumn, TableHeader, TableRow } from "@heroui/table";
 import { PencilIcon, ToggleLeft, ToggleRight } from "lucide-react";
 import { useRouter } from "next/navigation";

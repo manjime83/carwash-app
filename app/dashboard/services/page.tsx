@@ -1,19 +1,11 @@
 import ServiceDataTable from "@/components/ServiceDataTable";
-import { auth } from "@/lib/auth";
+import { checkSession } from "@/lib/auth";
 import { DAL } from "@/lib/db/dal";
-import { Link } from "@heroui/react";
+import { Link } from "@heroui/link";
 import { PlusIcon } from "lucide-react";
-import { headers } from "next/headers";
-import { redirect } from "next/navigation";
 
 export default async function ServicesPage() {
-  const session = await auth.api.getSession({
-    headers: await headers(),
-  });
-
-  if (!session) {
-    redirect("/login");
-  }
+  await checkSession();
 
   const services = await DAL.query.getServices();
 

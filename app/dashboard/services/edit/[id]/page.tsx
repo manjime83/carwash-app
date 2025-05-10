@@ -1,12 +1,12 @@
 import ServiceForm from "@/components/ServiceForm";
-import { getUser } from "@/lib/auth";
+import { checkSession } from "@/lib/auth";
 import { DAL } from "@/lib/db/dal";
 import { Link } from "@heroui/react";
 import { ArrowLeftIcon } from "lucide-react";
 import { notFound } from "next/navigation";
 
 export default async function EditServicePage({ params }: { params: Promise<{ id: string }> }) {
-  await getUser();
+  await checkSession();
 
   const { id } = await params;
   const service = await DAL.query.getServiceById(id);

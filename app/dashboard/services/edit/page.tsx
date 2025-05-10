@@ -1,10 +1,10 @@
 import ServiceForm from "@/components/ServiceForm";
-import { getUser } from "@/lib/auth";
+import { checkSession } from "@/lib/auth";
 import { Link } from "@heroui/react";
 import { ArrowLeftIcon } from "lucide-react";
 
 export default async function AddServicePage() {
-  await getUser();
+  await checkSession();
 
   return (
     <div className="flex w-full flex-col gap-4 p-4">
