@@ -2,7 +2,7 @@ import { betterAuth } from "better-auth";
 import { drizzleAdapter } from "better-auth/adapters/drizzle";
 import { magicLink } from "better-auth/plugins";
 import { headers } from "next/headers";
-import { redirect } from "next/navigation";
+import { unauthorized } from "next/navigation";
 import { db } from "./db";
 
 export const auth = betterAuth({
@@ -16,13 +16,13 @@ export const auth = betterAuth({
   ],
 });
 
-export async function getUser() {
+export async function checkSession() {
   const session = await auth.api.getSession({
     headers: await headers(),
   });
 
   if (!session) {
-    redirect("/login");
+    unauthorized();
   }
 
   return session.user;
