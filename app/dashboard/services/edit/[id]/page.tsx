@@ -1,7 +1,7 @@
 import ServiceForm from "@/components/ServiceForm";
 import { checkSession } from "@/lib/auth";
 import { DAL } from "@/lib/db/dal";
-import { Link } from "@heroui/react";
+import { Link } from "@heroui/link";
 import { ArrowLeftIcon } from "lucide-react";
 import { notFound } from "next/navigation";
 

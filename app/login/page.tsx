@@ -1,7 +1,9 @@
 "use client";
 
 import { authClient } from "@/lib/auth-client";
-import { Button, Form, Input } from "@heroui/react";
+import { Button } from "@heroui/button";
+import { Form } from "@heroui/form";
+import { Input } from "@heroui/input";
 import { useForm } from "@tanstack/react-form";
 import { useState } from "react";
 import { z } from "zod";

@@ -1,6 +1,6 @@
 import ServiceForm from "@/components/ServiceForm";
 import { checkSession } from "@/lib/auth";
-import { Link } from "@heroui/react";
+import { Link } from "@heroui/link";
 import { ArrowLeftIcon } from "lucide-react";
 
 export default async function AddServicePage() {
